@@ -1,14 +1,20 @@
 package com.company;
+import jdk.jshell.spi.ExecutionControlProvider;
+
 import java.io.*;
 import java.util.Scanner;
+import java.lang.Exception;
 
-public class Main {
+public class Main  {
 
-    public static void main(String[] args) {
+
+    private static Object ArithmeticException;
+
+    public static void main(String[] args)  {
         KcalCalculator kcalCalculator = new KcalCalculator();
         BMIcalculator BMIcalculator = new BMIcalculator();
 
-boolean wzrosttruefalse = false;
+        boolean wzrosttruefalse = false;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please enter your gender");
@@ -25,11 +31,15 @@ boolean wzrosttruefalse = false;
         System.out.println("Please enter your height");
 
         float height = scanner.nextFloat();
-        if( wzrosttruefalse = height > 10);
-        {
-            System.out.println("Please enter your height again,You have to use the x,yz format. For example 170cm it is a 1,7m ");
 
-        }
+
+            if (height > 10) {
+                wzrosttruefalse = false;
+
+                System.out.println("Please enter your height again,You have to use the x,yz format. For example 170cm it is a 1,7m ");
+
+            }
+
 
         kcalCalculator.setHeight( height);
         BMIcalculator.setHeight(height);

@@ -33,6 +33,22 @@ public class BMIcalculator extends Calory implements Serializable {
         return BMI;
     }
 
+
+    public boolean isHealth(float BMI)
+    {
+        boolean health = true;
+    if(BMI<30 && BMI>22)
+
+        health = true;
+
+    else if(BMI>30 || BMI<22)
+
+        health = false;
+
+        return health;
+    }
+
+
     public void setBMI(float BMI) {
         this.BMI = BMI;
     }

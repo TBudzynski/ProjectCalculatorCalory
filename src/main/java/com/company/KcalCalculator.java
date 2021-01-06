@@ -14,12 +14,12 @@ public class KcalCalculator extends Calory implements Serializable {
         public double obliczKcal() {
             if (getSex() == 1) {
                 kcal = ((9.9 * getBodyweight() + 625 * getHeight()) - 4.29 * getAge() + 5) * getPhysicalactivity()+DecisionClass.getRoznica();
-                System.out.println("Obliczylem ci kcal dziku");
+                System.out.println("Everything ok " );
             }
 
             if (getSex() == 2) {
                 kcal = ((9.99 * getBodyweight() + 625 * getHeight()) - 4.29 * getAge() - 161) * getPhysicalactivity()+DecisionClass.getRoznica();
-                System.out.println("Obliczylem ci kcal dziczko");
+                System.out.println("Everything ok ");
             }
             return kcal;
         }
