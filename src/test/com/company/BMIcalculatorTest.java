@@ -10,6 +10,7 @@ public class BMIcalculatorTest extends Calory {
 
     @Test
     public void userGetAllDataAndBmiIsNotANull() {
+
         Assert.assertNotNull(object.calculateBMI());
     }
 

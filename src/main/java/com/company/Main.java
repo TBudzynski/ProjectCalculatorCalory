@@ -1,20 +1,23 @@
 package com.company;
 import jdk.jshell.spi.ExecutionControlProvider;
 
+import javax.swing.table.TableRowSorter;
 import java.io.*;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.lang.Exception;
 
 public class Main  {
 
 
-    private static Object ArithmeticException;
+
 
     public static void main(String[] args)  {
+
         KcalCalculator kcalCalculator = new KcalCalculator();
         BMIcalculator BMIcalculator = new BMIcalculator();
 
-        boolean wzrosttruefalse = false;
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please enter your gender");
@@ -33,18 +36,26 @@ public class Main  {
         float height = scanner.nextFloat();
 
 
-            if (height > 10) {
-                wzrosttruefalse = false;
+            if (height > 2.3) {
 
-                System.out.println("Please enter your height again,You have to use the x,yz format. For example 170cm it is a 1,7m ");
+
+                try {
+                    throw new IllegalArgumentException("Please enter your height again,You have to use the x,yz format. For example 170cm it is a 1,7m " + height);
+                    }
+
+            catch(IllegalArgumentException exception)
+                    {
+                        System.err.println("You give a height in bad format! Correct it!");
+                        height = scanner.nextFloat();
+                    }
+
 
             }
-
 
         kcalCalculator.setHeight( height);
         BMIcalculator.setHeight(height);
 
-        System.out.println("Prosze o podanie wagi ciała, używając do tego jednostki [kg]");
+        System.out.println("Please enter your weight [kg]");
         float bodyweight = scanner.nextFloat();
         kcalCalculator.setBodyweight(bodyweight);
         BMIcalculator.setBodyweight(bodyweight);
@@ -52,10 +63,15 @@ public class Main  {
 
         kcalCalculator.setPhysicalactivity(scanner.nextFloat());
 
+        scanner.close();
 
         System.out.printf("The calorie value is %.2f", kcalCalculator.obliczKcal());
-            System.out.println();
+        System.out.println();
         System.out.println( BMIcalculator.decyzjaBMI());
+
+
+
+
 
          // Serializable
         try{

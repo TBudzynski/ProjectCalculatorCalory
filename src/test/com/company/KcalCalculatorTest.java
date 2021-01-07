@@ -25,7 +25,7 @@ public class KcalCalculatorTest extends Calory{
        double kcal = kcalCalculator.obliczKcal();
 
        // then
-       Assert.assertEquals(2501.5,kcal,1);
+      assertEquals(2501.5,kcal,1);
 
 
 
